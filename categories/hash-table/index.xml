@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hash table on Yunhua Fang</title>
+    <link>http://fangyunh.github.io/categories/hash-table/</link>
+    <description>Recent content in hash table on Yunhua Fang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 Jan 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://fangyunh.github.io/categories/hash-table/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>1.Two Sum</title>
+      <link>http://fangyunh.github.io/two-sum/</link>
+      <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://fangyunh.github.io/two-sum/</guid>
+      <description>1. Two Sum There are two different method. The first one is brute force enumeration. Enumerate all possible pairs until find the result. However, the algorithm has high time complexity, $O(n^2)$.
+The second method is using hash table to accelerate the searching part. In C++, we use unordered_map data structure. After define the hash table hasht, we use data values as key and their positions as value.</description>
+    </item>
+    
+  </channel>
+</rss>

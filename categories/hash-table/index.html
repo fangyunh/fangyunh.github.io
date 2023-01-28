@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Yunhua Fang | hash table</title>
+    <meta name="description" content=" ">
+    <link rel="canonical" href="http://fangyunh.github.io/categories/hash-table/" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <meta property="og:title" content="hash table" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://fangyunh.github.io/categories/hash-table/" />
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="hash table"/>
+<meta name="twitter:description" content=""/>
+
+    
+        
+    
+    <link rel="stylesheet" href='/css/style.css' />
+    <link rel="stylesheet" href='/css/search.css' />
+    <link rel="stylesheet" href='/css/md_nb.css' />
+    <link rel="stylesheet" href='/css/list.css' />
+    <link rel="stylesheet" href='/css/terms.css' />
+    <link rel="stylesheet" href='/css/taxonomy.css' />
+    <link rel="stylesheet" href='/css/home.css' />
+    <link rel="stylesheet" href='/css/syntax.css' />
+    
+    <link rel="stylesheet" href='/css/shortcode.css' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href='/css/_custom.css' />
+    <style>
+         
+    </style>
+    
+    
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+      },
+      displayMath: [
+        ["$$", "$$"],
+        ["\[\[", "\]\]"],
+      ],
+      svg: {
+        fontCache: "global",
+      },
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="/js/lazysizes.min.js" async=""></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/js/search.js"></script>
+    <script src="/js/md_nb.js"></script>
+    
+    <script src="/js/yes.js"></script>
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+</head><body style="font-family: ,'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;">
+        <div class="loading">
+            <div class="loading-bg"></div>
+            <div class="loading-long">
+                <div class="loading-short"></div>
+            </div>
+        </div>
+
+        <header>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/">
+                <span class="logo">Yunhua Fang</span>
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+                <a href="/">
+                    <div class="menu-item">
+                        <div class="hengtiao-root">
+                            <div class="hengtiao"></div>
+                            <div class="name text-wbd-reverse"><i class='fa fa-home'></i> Home</div>
+                        </div>
+                    </div>
+                </a>
+            
+                <a href="/posts">
+                    <div class="menu-item">
+                        <div class="hengtiao-root">
+                            <div class="hengtiao"></div>
+                            <div class="name text-wbd-reverse"><i class='fa fa-book'></i> Posts</div>
+                        </div>
+                    </div>
+                </a>
+            
+                <a href="/categories">
+                    <div class="menu-item">
+                        <div class="hengtiao-root">
+                            <div class="hengtiao"></div>
+                            <div class="name text-wbd-reverse"><i class='fa fa-folder-open'></i> Categories</div>
+                        </div>
+                    </div>
+                </a>
+            
+                <a href="/tags">
+                    <div class="menu-item">
+                        <div class="hengtiao-root">
+                            <div class="hengtiao"></div>
+                            <div class="name text-wbd-reverse"><i class='fa fa-tags'></i> Tags</div>
+                        </div>
+                    </div>
+                </a>
+            
+                <a href="/about">
+                    <div class="menu-item">
+                        <div class="hengtiao-root">
+                            <div class="hengtiao"></div>
+                            <div class="name text-wbd-reverse"><i class='fa fa-info-circle'></i> About</div>
+                        </div>
+                    </div>
+                </a>
+            
+            <div class="navbar-burger">
+                <div class="burger-btn"><span><i class="fa fa-navicon"></i></span></div>
+            </div>
+            
+            
+            <div class="search-in"><span><i class="fa fa-search"></i></span></div>
+            
+                <div class="mode">
+                    <span class="sun"><i class="fa fa-sun-o"></i></span>
+                    <span class="moon"><i class="fa fa-moon-o"></i></span>
+                </div>
+            
+        </div>
+    </nav>
+    <div class="burger-items">
+        
+        <a href="/">
+            <div class="burger-item">
+                <i class='fa fa-home'></i> Home
+            </div>
+        </a>
+        
+        <a href="/posts">
+            <div class="burger-item">
+                <i class='fa fa-book'></i> Posts
+            </div>
+        </a>
+        
+        <a href="/categories">
+            <div class="burger-item">
+                <i class='fa fa-folder-open'></i> Categories
+            </div>
+        </a>
+        
+        <a href="/tags">
+            <div class="burger-item">
+                <i class='fa fa-tags'></i> Tags
+            </div>
+        </a>
+        
+        <a href="/about">
+            <div class="burger-item">
+                <i class='fa fa-info-circle'></i> About
+            </div>
+        </a>
+        
+    </div>
+    <div class="header-rest"></div>
+</header>
+
+
+        <div id="content">
+    
+
+
+
+
+
+
+    
+        
+    
+
+
+
+
+    <div class="hero">
+        
+            
+                <div class="hero-img">
+                    <img class="lazyload" src="/images/thumbnail.gif" data-src="/images/default.jpg" alt="">
+                </div>
+            
+        <div class="hero-content">
+            <h1 class="hero-title">Category: hash table</h1>
+        </div>
+    </div>
+
+
+
+
+<div class="zhuti-0">
+    <div class="container">
+        <div class="zhuti">
+            <div class="zhuti-l">
+                
+
+
+
+
+    
+
+
+<div class="terms-body">
+    <div class="long">
+        <button class="tosides-1 text-wbd">
+            <i class="fa fa-arrow-right"></i>
+        </button>
+        <button class="tosides-2 text-wbd">
+            <i class="fa fa-arrow-left"></i>
+        </button>
+        <button class="toup text-wbd">
+            <i class="fa fa-arrow-up"></i>
+        </button>
+    </div>
+    
+        <div class="terms-row">
+            
+            <div class="terms-root">
+                
+                
+
+
+<div class="card-large">
+    <div class="card-large-img">
+
+        
+                <img class="lazyload" src="/images/thumbnail.gif" data-src="/images/default.jpg" alt='image loading failed'>
+        
+    </div>
+    <div class="card-large-content">
+        <div class="up-title"><a href="http://fangyunh.github.io/two-sum/">1.Two Sum</a></div>
+        <div class="up-date">
+            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-1-23 &nbsp;</span>
+            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-1-23 &nbsp;</span>
+            <span class="no-wrap"><i class="fa fa-folder"></i>
+                
+                    includedIn:
+                    
+                        <a href='
+                                        /categories/leetcode
+                                    '>
+                                leetcode
+                            </a>, 
+                        <a href='
+                                        /categories/array
+                                    '>
+                                array
+                            </a>, 
+                        <a href='
+                                        /categories/hash-table
+                                    '>
+                                hash table
+                            </a>
+                
+            </span>
+        </div>
+        <div class="down-summary">1. Two Sum There are two different method. The first one is brute force enumeration. Enumerate all possible pairs until find the result. However, the algorithm has high time complexity, $O(n^2)$.
+The second method is using hash table to accelerate the searching part. In C++, we use unordered_map data structure. After define the hash table hasht, we use data values as key and their positions as value.</div>
+    </div>
+    <div class="card-readmore">
+        <a href="http://fangyunh.github.io/two-sum/">
+            <span><i class="fa fa-arrow-right"></i></span>
+        </a>
+    </div>
+</div>
+
+
+
+
+<div class="dang"></div>
+            </div>
+            
+        </div>
+    
+</div>
+
+
+            </div>
+            <div class="zhuti-r">
+                
+<div class="zhuti-r-0">
+    <div class="zhuti-r-1">
+        
+        <div id="r1">
+            
+
+<div class="about-zuozhe">
+    <div class="zuozhe">
+        
+            <div class="datou">
+                <img class="lazyload" src="/images/thumbnail.gif" data-src="/static/kid.jpg" alt="">
+            </div>
+        
+        <div class="name-jianjie">
+            <div class="name">Yunhua Fang</div>
+            <div class="jianjie">
+                Quantitative Changes Lead to Qualitative Changes.
+            </div>
+        </div>
+    </div>
+
+    <div class="type">
+        <a href='
+                    /posts/
+                '>
+            <p>posts</p>
+            <p>2</p>
+        </a>
+        <a href='
+                    /categories/
+                '>
+            <p>categories</p>
+            <p>3</p>
+        </a>
+        <a href='
+                    /tags/
+                '>
+            <p>tags</p>
+            <p>0</p>
+        </a>
+    </div>
+
+    <a href="https://github.com/fangyunh">
+        <div class="follow">Follow Me</div>
+    </a>
+    <div class="link">
+        
+        <a href="https://github.com/xioyito" class="link-item is-hidden-desktop" title="GitHub">
+            <span class="icon"><i class='fa fa-github'></i></span>
+        </a>
+        
+        <a href="https://www.youtube.com" class="link-item is-hidden-desktop" title="YouTube">
+            <span class="icon"><i class='fa fa-youtube'></i></span>
+        </a>
+        
+    </div>
+</div>
+            <div class="mulu">
+    <div class="dong"></div>
+    <div class="zhi">
+        <div class="wenzi">
+            <div class="zhi-mulu text-wbd">Table of Contents</div>
+            <div class="mulu-items">
+            </div>
+        </div>
+    </div>
+</div>
+            
+
+
+
+
+<div class="other">
+    <div class="other-up">
+        <div class="other-qita text-wbd">latest Posts</div>
+        <div class="xian"></div>
+    </div>
+    <div class="list">
+        
+            <a href="http://fangyunh.github.io/best-time-to-buy-and-sell-stock/">
+                
+<a href="http://fangyunh.github.io/best-time-to-buy-and-sell-stock/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url( /images/default.jpg );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                121.Best Time to Buy and Sell Stock
+            </div>
+            <div class="other-summary">121. Best Time to Buy and Sell Stock Question: You are given an array prices where prices[i] is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.</div>
+            <div class="other-date">2023-1-24</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
+            <a href="http://fangyunh.github.io/two-sum/">
+                
+<a href="http://fangyunh.github.io/two-sum/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url( /images/default.jpg );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                1.Two Sum
+            </div>
+            <div class="other-summary">1. Two Sum There are two different method. The first one is brute force enumeration. Enumerate all possible pairs until find the result. However, the algorithm has high time complexity, $O(n^2)$.
+The second method is using hash table to accelerate the searching part. In C++, we use unordered_map data structure. After define the hash table hasht, we use data values as key and their positions as value.</div>
+            <div class="other-date">2023-1-23</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
+    </div>
+</div>
+        </div>
+        <div id="r2">
+            
+        </div> 
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        </div>
+
+        <footer class="footer">
+    
+        <div class="container">
+            <div class="footer-items">
+                
+                    <div class="footer-item">
+                        <i class="fa fa-user"></i> <span id="busuanzi_value_site_pv"></span> |
+                        <i class="fa fa-eye"></i> <span id="busuanzi_value_site_uv"></span>
+                    </div>
+                
+                
+                    <div class="footer-item">
+                        © 2022-2023 <a href="https://github.com/fangyunh">Yunhua Fang</a>
+                    </div>
+                
+                
+                    <div class="footer-item">
+                        Theme by <a href="https://github.com/xioyito/NewBee">NewBee</a> | Powered by <a href="https://gohugo.io/">Hugo</a>
+                    </div>
+                
+            </div>
+        </div>
+    
+
+    
+</footer>
+
+
+        
+        <div class="search-root">
+    <div class="search-zz"></div>
+    <div class="search">
+        <div class="sheader anniu">
+            <div class="sh-l">
+                <input type="text" placeholder='Enter a KeyWord' id="search-key">
+                <span class="sclear"><i class="fa fa-close"></i></span>
+            </div>
+            <div class="sh-r">
+                <button>search</button>
+            </div>
+        </div>
+        <div class="sbody">
+            <div class="sbody-1">
+                <div class="stip"></div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+
+
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+
+<script type="text/javascript">
+    var mode_custom = "auto";
+    var postsCount =  2 ;
+    var arrPosts = [{"link":"http://fangyunh.github.io/best-time-to-buy-and-sell-stock/","plain":"121. Best Time to Buy and Sell Stock Question: You are given an array prices where prices[i] is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock. Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.\nSolution: During the loop, the program should record the minimum price and maximum profit and update them in each iteration. Hence, our minimum price keeps minimum and maximum profit keeps maximum. The time complexity is $O(n)$ which is efficient, but it costs a lot of space complexity to store values.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 class Solution { public: int maxProfit(vector\u0026lt;int\u0026gt;\u0026amp; prices) { int minp = prices[0]; //min price int maxp = 0; //max profit for (int i=1; i\u0026lt;prices.size(); ++i) { if (prices[i] \u0026lt; minp) { minp = prices[i]; } if (prices[i]-minp \u0026gt; maxp) { maxp = prices[i] - minp; } } return maxp; } }; Runtime: 138 ms\tBeats: 77.33%\tMemory: 93.4 MB\tBeats: 11.32%\n","pubDate":"2023-01-24","title":"121.Best Time to Buy and Sell Stock"},{"link":"http://fangyunh.github.io/two-sum/","plain":"1. Two Sum There are two different method. The first one is brute force enumeration. Enumerate all possible pairs until find the result. However, the algorithm has high time complexity, $O(n^2)$.\nThe second method is using hash table to accelerate the searching part. In C++, we use unordered_map data structure. After define the hash table hasht, we use data values as key and their positions as value. hasht.emplace() helps the program store the pairs efficiently. Then, hasht.find() can help the program find the corresponding value equal to \u0026ldquo;target - nums[i]\u0026rdquo;. Finally, storing their positions in the return vector and return it.\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 class Solution { public: vector\u0026lt;int\u0026gt; twoSum(vector\u0026lt;int\u0026gt;\u0026amp; nums, int target) { vector\u0026lt;int\u0026gt; indices; unordered_map\u0026lt;int, int\u0026gt; hasht; for (int j=0; j\u0026lt;nums.size(); ++j) { hasht.emplace(nums[j],j); } for (int i=0; i\u0026lt;nums.size(); ++i) { auto iter = hasht.find(target-nums[i]); if (iter != hasht.end()) {\t//Prevent searching out of range if (iter-\u0026gt;second != i) {\t//second is position of values indices.push_back(i); indices.push_back(iter-\u0026gt;second); break; } } } return indices; } }; Runtime: 21ms\tBeats: 64.56%\tMemory: 12.2 MB\tBeats: 5.67%\n","pubDate":"2023-01-23","title":"1.Two Sum"}];
+    var search_theEnd = "The End";
+    var search_nothing = "Nothing was found";
+    var search_found = "Found";
+    var search_result = "result";
+    var search_results = "results";
+</script>
+
+
+
+
+
+    </body>
+</html>
+
