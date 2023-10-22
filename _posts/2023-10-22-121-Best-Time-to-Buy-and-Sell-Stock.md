@@ -2,7 +2,7 @@
 layout:     post
 title:      Best Time to Buy and Sell Stock
 subtitle:   LeetCode 121 Best Time to Buy and Sell Stock
-date:       2023-10-221
+date:       2023-10-22
 author:     FYH
 header-img: img/post-bg-lc.jpg
 catalog: true

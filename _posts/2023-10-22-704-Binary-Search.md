@@ -2,7 +2,7 @@
 layout:     post
 title:      Binary Search
 subtitle:   LeetCode 704 Binary Search Solution
-date:       2023-10-221
+date:       2023-10-22
 author:     FYH
 header-img: img/post-bg-lc.jpg
 catalog: true

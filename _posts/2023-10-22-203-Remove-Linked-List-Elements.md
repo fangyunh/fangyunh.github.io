@@ -2,7 +2,7 @@
 layout:     post
 title:      Remove Linked List Elements
 subtitle:   LeetCode 203 Remove Linked List Elements
-date:       2023-10-221
+date:       2023-10-22
 author:     FYH
 header-img: img/post-bg-lc.jpg
 catalog: true
