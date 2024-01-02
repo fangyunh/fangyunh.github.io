@@ -8,7 +8,7 @@ header-img: img/post-bg-lc.jpg
 catalog: true
 tags:
     - Reading Notes
-    - Sapiens A Breif History of Humankindno
+    - Sapiens A Breif History of Humankind
 ---
 
 # 农业革命
