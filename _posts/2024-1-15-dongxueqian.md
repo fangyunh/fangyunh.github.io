@@ -4,7 +4,7 @@ title:      洞穴奇案
 subtitle:   洞穴奇案 读书笔记
 date:       2024-1-15
 author:     FYH
-header-img: img/post-bg-lc.jpg
+header-img: img/golden_law.png
 catalog: true
 tags:
     - Reading Notes
