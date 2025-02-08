@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      农业革命
-subtitle:   人类简史：从动物到上帝 第二部分：农业革命
+title:      人类简史：从动物到上帝
+subtitle:   第二部分：农业革命
 date:       2024-1-1
 author:     FYH
 header-img: img/post-bg-lc.jpg
