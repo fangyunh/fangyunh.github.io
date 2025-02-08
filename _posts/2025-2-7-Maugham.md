@@ -3,7 +3,7 @@ layout:     post
 title:      威廉 萨默塞特 毛姆
 date:       2025-2-7
 author:     FYH
-header-img: img/post-bg-lc.jpg
+header-img: img/post-bg-authors.jpg
 catalog: true
 tags:
     - authors

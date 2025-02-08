@@ -3,7 +3,7 @@ layout:     post
 title:      月亮与六便士
 date:       2025-2-7
 author:     FYH
-header-img: img/post-bg-lc.jpg
+header-img: img/post-bg-moon.jpg
 catalog: true
 tags:
     - Reading Notes
