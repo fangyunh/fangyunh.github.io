@@ -6,7 +6,6 @@ author:     FYH
 header-img: img/post-bg-lc.jpg
 catalog: true
 tags:
-    - book
     - authors
 ---
 
