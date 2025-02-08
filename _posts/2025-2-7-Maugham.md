@@ -7,6 +7,7 @@ header-img: img/post-bg-lc.jpg
 catalog: true
 tags:
     - authors
+    - 毛姆
 ---
 
 # 威廉 萨默塞特 毛姆
