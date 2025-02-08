@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      威廉 萨默塞特 毛姆
+date:       2025-2-7
+author:     FYH
+header-img: img/post-bg-lc.jpg
+catalog: true
+tags:
+    - book
+    - authors
+---
+
 # 威廉 萨默塞特 毛姆
 
 William Somerset Maugham，1874年1月25日—1965年12月16日，[英国](https://zh.wikipedia.org/wiki/英国)现代[小说家](https://zh.wikipedia.org/wiki/小說家)、[剧作家](https://zh.wikipedia.org/wiki/劇作家)。他是那个时代最受欢迎的作家之一，据说是20世纪30年代收入最高的作家。
