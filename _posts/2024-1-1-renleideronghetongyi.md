@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      人类的融合统一
-subtitle:   人类简史：从动物到上帝 第三部分：人类的融合统一 笔记
+title:      人类简史：从动物到上帝
+subtitle:   第三部分：人类的融合统一
 date:       2024-1-1
 author:     FYH
 header-img: img/post-bg-lc.jpg
